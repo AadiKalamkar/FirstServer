@@ -11,6 +11,9 @@ router.get("/", (req, res) => {
 router.get("/login", (req, res) => {
     res.render("login")
 })
+router.get("/home", (req, res) => {
+    res.render("home")
+})
 router.post("/register/home", async (req, res) => {
     try {
         const { name, contact, email, password, cpassword } = await req.body
