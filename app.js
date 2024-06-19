@@ -4,7 +4,7 @@ import db from "./db/db.js";
 import router from "./routes/index.js";
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 10000;
 
 app.set("view engine", "ejs");
 
