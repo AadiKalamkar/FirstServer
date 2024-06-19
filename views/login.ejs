@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Add Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for the black theme */
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        .form-container {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="w-full max-w-md form-container">
+            <h2 class="text-2xl font-semibold mb-4">Login</h2>
+            <form action="/login/home" method="POST">
+                <!-- Email -->
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-300">Email</label>
+                    <input type="email" id="email" name="email" class="mt-1 p-2 w-full border rounded-md bg-gray-800 text-white" required>
+                </div>
+                <!-- Password -->
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-medium text-gray-300">Password</label>
+                    <input type="password" id="password" name="password" class="mt-1 p-2 w-full border rounded-md bg-gray-800 text-white" required>
+                </div>
+                <!-- Submit Button -->
+                <button type="submit" class="bg-blue-500 ml-32 px-4 py-2 rounded-md hover:bg-blue-600">Login</button>
+                <button type="reset" class="bg-blue-500 px-4 py-2 rounded-md hover:bg-blue-600">Reset</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

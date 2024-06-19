@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <!-- Add Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for the profile page */
+        body {
+            background-color: #f7fafc;
+        }
+
+        .profile-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .btn-logout {
+            background-color: #e53e3e;
+            color: #ffffff;
+        }
+
+        .btn-edit {
+            background-color: #3182ce;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="profile-container">
+        <script>
+            let id = localStorage.getItem(userId)
+                (async () => {
+                    const res = await fetch(`http://localhost:5656/profile/${id}`)
+                })()
+        </script>
+
+        <h2 class="text-2xl font-semibold mb-4"></h2>
+        <p class="mb-2"><strong>Name:</strong>
+            <%=user.name%>
+        </p>
+        <p class="mb-2"><strong>Email:</strong>
+            <%=user.email%>
+        </p>
+        <p class="mb-4"><strong>Contact:</strong>+91 <%=user.contact%>
+        </p>
+        <button class="btn btn-logout" onClick="logout()">Logout</button>
+        <a href="./editprofile">
+            <button class="btn btn-edit ml-2">Edit Profile</button></a>
+    </div>
+</body>
+<script>
+    function logout() {
+        localStorage.removeItem("userId")
+        window.location.href = "/"
+    }
+</script>
+
+</html>

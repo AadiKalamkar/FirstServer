@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #333;
+            --secondary-color: #444;
+            --overlay-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .overlay {
+            background-color: var(--overlay-color);
+        }
+
+        .btn-custom {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            border-radius: 30px;
+        }
+
+        .btn-custom:hover {
+            background: var(--secondary-color);
+        }
+    </style>
+</head>
+<script>
+    // Set userId in localStorage after rendering the template
+    const userId = "<%= id %>";
+    localStorage.setItem("userId", userId);
+</script>
+
+<body class="font-sans text-gray-900 text-base leading-relaxed">
+    <nav class="navbar py-1.5">
+        <div class="container mx-auto grid grid-cols-2 gap-8 px-4">
+            <h1 class="logo text-4xl">Phono</h1>
+            <ul class="nav flex items-center justify-end space-x-4">
+                <li><a href="#home" class="hover:text-gray-600">Home</a></li>
+                <li><a href="#about" class="hover:text-gray-600">About</a></li>
+                <li>
+
+                    <% if (!id) { %>
+                        <div
+                            class="hover:text-gray-100 font-bold rounded-full py-1 px-3 bg-indigo-700 h-[70px] w-[70px]">
+                            <a href="./registration">Sign-in</a>
+                        </div>
+                        <% } else { %>
+                            <a href="/profile/<%=id%>">
+                                <div
+                                    class="hover:text-gray-100 font-bold rounded-full py-1 px-3 bg-indigo-700 h-[70px] w-[70px]">
+                                    <%= name %>
+                                </div>
+                            </a>
+                            <% } %>
+
+
+
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Showcase -->
+    <section class="section-a my-8">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-4">
+            <div>
+                <h1 class="text-6xl text-gray-900">The headphones of the future.</h1>
+                <p class="my-4 text-gray-700">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+                    repudiandae rerum libero ipsum asperiores omnis mollitia, nostrum
+                    commodi placeat ea itaque modi corrupti corporis nam voluptas aut
+                    reprehenderit eaque culpa.
+                </p>
+                <a href="#" class="btn-custom">Read More</a>
+            </div>
+            <img src="https://i.ibb.co/37Y74kv/showcase.jpg" alt="" class="w-full" />
+        </div>
+    </section>
+
+    <!-- Large Text -->
+    <section id="about" class="section-b relative bg-cover bg-center h-150"
+        style="background-image: url('https://i.ibb.co/1RS1dqC/section-b.jpg');">
+        <div
+            class="overlay h-full w-full absolute top-0 left-0 flex flex-col items-center justify-center text-center text-white">
+            <div class="section-b-inner py-20 max-w-3xl mx-auto">
+                <h3 class="text-2xl">Loud & Clear</h3>
+                <h2 class="text-5xl mt-4">People Aren't Hearing All the Music</h2>
+                <p class="mt-4 text-lg">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                    repudiandae laboriosam quia, error tempore porro ducimus voluptate
+                    laborum nostrum iure.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section-c">
+        <div class="gallery grid grid-cols-5 gap-4 px-4">
+            <a href="https://i.ibb.co/CHLBZnp/gal2323.jpg" class="row-span-2 col-span-2"><img
+                    src="https://i.ibb.co/CHLBZnp/gal2323.jpg" alt="" class="w-full h-full object-cover" /></a>
+            <a href="https://i.ibb.co/4pBbhfY/gal39834.jpg" class="col-span-2"><img
+                    src="https://i.ibb.co/4pBbhfY/gal39834.jpg" alt="" class="w-full h-full object-cover" /></a>
+            <a href="https://i.ibb.co/xSnHP7g/gal43884.jpg"><img src="https://i.ibb.co/xSnHP7g/gal43884.jpg" alt=""
+                    class="w-full h-full object-cover" /></a>
+            <a href="https://i.ibb.co/QN6Bnrb/gal4958.jpg"><img src="https://i.ibb.co/QN6Bnrb/gal4958.jpg" alt=""
+                    class="w-full h-full object-cover" /></a>
+            <a href="https://i.ibb.co/dGZvj75/gal4545.jpg"><img src="https://i.ibb.co/dGZvj75/gal4545.jpg" alt=""
+                    class="w-full h-full object-cover" /></a>
+            <a href="https://i.ibb.co/S6FVFNt/gal74744.jpg"><img src="https://i.ibb.co/S6FVFNt/gal74744.jpg" alt=""
+                    class="w-full h-full object-cover" /></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section-footer py-16 bg-gray-900 text-white">
+        < class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 px-4 text-center md:text-left">
+            <div>
+                <h2 class="text-2xl mb-4">Lorem ipsum dolor sit.</h2>
+                <a href="http://twitter.com" class="inline-block mx-2">
+                    <i class="fab fa-twitter fa-2x"></i>
+                </a>
+                <a href="http://facebook.com" class="inline-block mx-2">
+                    <i class="fab fa-facebook fa-2x"></i>
+                </a>
+                <a href="http://youtube.com" class="inline-block mx-2">
+                    <i class="fab fa-youtube fa-2x"></i>
+                </a>
+            </div>
+            <div>
+                <h3 class="text-xl mb-3">Company Info</h3>
+                <ul>
+                    <li><a href="#" class="text-gray-400 hover:text-gray-300">All Products</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-gray-300">About Us</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-gray-300">Privacy Policy</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-gray-300">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl mb-3">Blog Posts</h3>
+                <ul>
+                    <li><a href="#" class="text-gray-400 hover:text-gray-300">Lorem ipsum dolor.</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-gray-300">Lorem ipsum dolor.</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-gray-300">Lorem ipsum dolor.</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-gray-300">Lorem ipsum dolor.</a></li>
+                </ul>
+            </div>
+            </div>
+    </footer>
+</body>
+<script>
+    $(function () {
+        const $gallery = $('.gallery a').simpleLightbox();
+    });
+    TaxiNewsSig("sig")
+</script>
+
+</html>
